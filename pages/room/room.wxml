@@ -1,0 +1,109 @@
+<view class="page" wx:if="{{room}}">
+  <view class="card room-head">
+    <view class="rh-top">
+      <text class="rh-code">房号 {{room.code}}</text>
+      <text class="badge {{room.status === 'ongoing' ? 'badge-on' : 'badge-off'}}">{{room.status === 'ongoing' ? '进行中' : '已结束'}}</text>
+    </view>
+    <view class="rh-sub">{{memberCount}} 位玩家 · 积分自动核算</view>
+  </view>
+
+  <view class="section-title">实时积分（点好友头像给TA加分，点自己头像管理）</view>
+
+  <view class="card member-card">
+    <view class="member-grid">
+      <view
+        wx:for="{{members}}"
+        wx:key="openid"
+        class="m-cell"
+        data-openid="{{item.openid}}"
+        bindtap="onAvatarTap"
+      >
+        <view class="m-avatar-wrap">
+          <image wx:if="{{item.avatar}}" class="m-avatar" src="{{item.avatar}}" mode="aspectFill" />
+          <view wx:else class="m-avatar avatar-ph2">{{item.nickname[0]}}</view>
+          <view wx:if="{{item.isMe}}" class="me-flag">我</view>
+        </view>
+        <view class="m-name">{{item.nickname}}</view>
+        <view class="m-net {{item.net > 0 ? 'pos' : (item.net < 0 ? 'neg' : '')}}">{{item.netText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+
+  <view class="bottom-bar">
+    <block wx:if="{{room.status === 'ongoing'}}">
+      <view class="bar-row">
+        <view class="btn ghost bar-btn" bindtap="showQr">房号二维码</view>
+        <view wx:if="{{isOwner}}" class="btn primary bar-btn" bindtap="endRoom">结束房间并结算</view>
+        <view wx:else class="btn ghost bar-btn btn-disabled">等待房主结算</view>
+      </view>
+    </block>
+    <view wx:else class="btn primary" bindtap="viewSettle">查看结算</view>
+  </view>
+
+  <view class="mask" wx:if="{{showQr}}" bindtap="hideQr">
+    <view class="modal qr-modal" catchtap="noop">
+      <view class="qr-close" bindtap="hideQr">×</view>
+      <view class="m-title">邀请加入</view>
+      <view class="qr-code">房号：{{room.code}}</view>
+      <view class="qr-sub">微信扫描以下二维码进入房间</view>
+      <image
+        wx:if="{{room.qrFileID}}"
+        class="qr-img"
+        src="{{room.qrFileID}}"
+        show-menu-by-longpress="{{true}}"
+      />
+      <view wx:else class="qr-fallback">二维码生成失败\n也可以直接输房号或点下方转发</view>
+      <button class="share-btn" open-type="share">转发给好友</button>
+    </view>
+  </view>
+
+  <view class="mask" wx:if="{{showMe}}" bindtap="closeMe">
+    <view class="modal" catchtap="noop">
+      <view class="modal-close" bindtap="closeMe">×</view>
+      <view class="me-row">
+        <image wx:if="{{myAvatar}}" class="me-avatar" src="{{myAvatar}}" mode="aspectFill" />
+        <view wx:else class="me-avatar avatar-ph2">{{myName[0]}}</view>
+        <view class="me-info">
+          <view class="me-name">{{myName}}</view>
+          <view class="me-net {{myNetText === '0' ? '' : (myNetText[0] === '+' ? 'pos' : (myNetText[0] === '-' ? 'neg' : ''))}}">{{myNetText}}</view>
+        </view>
+      </view>
+      <view class="m-btns">
+        <view class="btn ghost half" bindtap="updateNickname">更新昵称</view>
+        <view class="btn danger half" bindtap="exitRoom">退出房间</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="mask" wx:if="{{payTarget}}" bindtap="closePay">
+    <view class="modal" catchtap="noop">
+      <view class="modal-close" bindtap="closePay">×</view>
+      <view class="pay-row">
+        <view class="pay-side">
+          <image wx:if="{{myAvatar}}" class="pay-avatar" src="{{myAvatar}}" mode="aspectFill" />
+          <view wx:else class="pay-avatar avatar-ph2">{{myName[0]}}</view>
+          <text class="pay-name">{{myName}}</text>
+        </view>
+        <view class="pay-mid">
+          <text>支出分数</text>
+          <view class="pay-arrow"></view>
+        </view>
+        <view class="pay-side">
+          <image wx:if="{{payTarget.avatar}}" class="pay-avatar" src="{{payTarget.avatar}}" mode="aspectFill" />
+          <view wx:else class="pay-avatar avatar-ph2">{{payTarget.nickname[0]}}</view>
+          <text class="pay-name">{{payTarget.nickname}}</text>
+        </view>
+      </view>
+      <input
+        class="pay-input"
+        type="digit"
+        placeholder="输入支出分数"
+        value="{{payAmount}}"
+        bindinput="onPayInput"
+      />
+      <view class="btn primary pay-btn" bindtap="confirmPay">支出</view>
+    </view>
+  </view>
+</view>

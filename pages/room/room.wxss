@@ -1,0 +1,277 @@
+.rh-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rh-code {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.rh-sub {
+  font-size: 24rpx;
+  color: #888780;
+  margin-top: 10rpx;
+}
+
+.member-card {
+  padding: 32rpx 24rpx;
+}
+
+.member-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.m-cell {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+}
+
+.m-avatar-wrap {
+  position: relative;
+}
+
+.m-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+
+.avatar-ph2 {
+  background: #0F6E56;
+  color: #ffffff;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.me-flag {
+  position: absolute;
+  right: -6rpx;
+  bottom: -2rpx;
+  background: #0F6E56;
+  color: #ffffff;
+  font-size: 18rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.m-name {
+  margin-top: 12rpx;
+  width: 150rpx;
+  font-size: 24rpx;
+  color: #444441;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.m-net {
+  margin-top: 6rpx;
+  width: 150rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: center;
+}
+
+.bottom-space {
+  height: 220rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F6F7F8;
+  padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+}
+
+.bar-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-btn {
+  width: 48%;
+  box-sizing: border-box;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 32rpx;
+  top: 16rpx;
+  font-size: 48rpx;
+  color: #888780;
+  padding: 8rpx;
+  z-index: 2;
+}
+
+.me-row {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0 32rpx;
+}
+
+.me-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+}
+
+.me-info {
+  margin-left: 24rpx;
+}
+
+.me-name {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.me-net {
+  margin-top: 8rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.btn.danger {
+  background: #D85A30;
+  color: #ffffff;
+}
+
+.pay-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 20rpx 36rpx;
+}
+
+.pay-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200rpx;
+}
+
+.pay-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+}
+
+.pay-name {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pay-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #888780;
+}
+
+.pay-arrow {
+  margin-top: 10rpx;
+  width: 120rpx;
+  height: 1rpx;
+  background: #B4B2A9;
+  position: relative;
+}
+
+.pay-arrow::after {
+  content: '';
+  position: absolute;
+  right: -2rpx;
+  top: -7rpx;
+  border-left: 14rpx solid #B4B2A9;
+  border-top: 7rpx solid transparent;
+  border-bottom: 7rpx solid transparent;
+}
+
+.pay-input {
+  background: #F6F7F8;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.pay-btn {
+  margin-top: 28rpx;
+}
+
+.qr-modal {
+  padding: 40rpx 40rpx calc(60rpx + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.qr-close {
+  position: absolute;
+  right: 32rpx;
+  top: 20rpx;
+  font-size: 48rpx;
+  color: #888780;
+  padding: 8rpx;
+}
+
+.qr-code {
+  font-size: 52rpx;
+  font-weight: 500;
+  margin: 8rpx 0;
+  letter-spacing: 4rpx;
+}
+
+.qr-sub {
+  font-size: 26rpx;
+  color: #888780;
+  margin-bottom: 28rpx;
+}
+
+.qr-img {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.qr-fallback {
+  color: #888780;
+  font-size: 26rpx;
+  line-height: 1.8;
+  padding: 40rpx 0;
+}
+
+.share-btn {
+  margin-top: 32rpx;
+  background: #0F6E56;
+  color: #ffffff;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  padding: 22rpx 0;
+  width: 100%;
+}
+
+.share-btn::after {
+  border: none;
+}

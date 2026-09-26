@@ -1,0 +1,28 @@
+.stat-card {
+  padding: 28rpx 32rpx;
+}
+
+.sc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sc-name {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.sc-net {
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
+.sc-sub {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #888780;
+  flex-wrap: wrap;
+}

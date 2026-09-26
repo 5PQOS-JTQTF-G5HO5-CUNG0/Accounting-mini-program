@@ -1,0 +1,83 @@
+.st-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.res-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  border-top: 1rpx solid #F0F1F1;
+}
+
+.res-name {
+  font-size: 30rpx;
+}
+
+.res-net {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.flat-note {
+  margin-top: 20rpx;
+  text-align: center;
+  color: #888780;
+  font-size: 26rpx;
+}
+
+.transfer-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 32rpx;
+}
+
+.t-from,
+.t-to {
+  font-size: 30rpx;
+  font-weight: 500;
+  width: 160rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t-to {
+  text-align: right;
+}
+
+.t-arrow {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 24rpx;
+}
+
+.t-line {
+  flex: 1;
+  height: 1rpx;
+  background: #B4B2A9;
+}
+
+.t-amount {
+  margin: 0 16rpx;
+  color: #0F6E56;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.bottom-space {
+  height: 160rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F6F7F8;
+  padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+}

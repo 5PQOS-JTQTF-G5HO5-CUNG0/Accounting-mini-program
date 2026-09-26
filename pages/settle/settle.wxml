@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="card">
+    <view class="st-title">房号 {{room.code}} · 结算</view>
+    <view class="res-row" wx:for="{{results}}" wx:key="name">
+      <text class="res-name">{{item.name}}</text>
+      <text class="res-net {{item.net > 0 ? 'pos' : (item.net < 0 ? 'neg' : '')}}">{{item.netText}}</text>
+    </view>
+    <view wx:if="{{allZero}}" class="flat-note">所有人打平，没有输赢</view>
+  </view>
+
+  <view class="section-title" wx:if="{{hasDebt}}">建议转账方案（笔数最少）</view>
+  <view wx:if="{{hasDebt}}">
+    <view wx:for="{{transfers}}" wx:key="index" class="card transfer-card">
+      <text class="t-from">{{item.from}}</text>
+      <view class="t-arrow">
+        <view class="t-line"></view>
+        <text class="t-amount">{{item.amountText}}</text>
+        <view class="t-line"></view>
+      </view>
+      <text class="t-to">{{item.to}}</text>
+    </view>
+  </view>
+  <view wx:elif="{{!allZero}}" class="empty">没有需要转账的欠款</view>
+
+  <view class="bottom-space"></view>
+  <view class="bottom-bar">
+    <view class="btn primary" bindtap="backHome">完成</view>
+  </view>
+</view>

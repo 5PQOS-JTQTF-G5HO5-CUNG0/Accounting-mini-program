@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="card profile-card">
+    <view class="profile-top">
+      <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image wx:if="{{avatarUrl}}" class="avatar" src="{{avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-ph">{{nickname ? nickname[0] : '？'}}</view>
+      </button>
+      <input
+        class="nick-input"
+        type="nickname"
+        placeholder="点此填写昵称"
+        placeholder-class="nick-ph"
+        value="{{nickname}}"
+        bindinput="onNicknameInput"
+      />
+    </view>
+    <view class="profile-stats">
+      <view class="ps-item" bindtap="goStats">
+        <view class="ps-num">{{rank}}</view>
+        <view class="ps-label">好友排名</view>
+      </view>
+      <view class="ps-divider"></view>
+      <view class="ps-item">
+        <view class="ps-num {{totalNetText === '0' ? '' : (totalNetText[0] === '+' ? 'pos' : (totalNetText[0] === '-' ? 'neg' : ''))}}">{{totalNetText}}</view>
+        <view class="ps-label">总积分</view>
+      </view>
+      <view class="ps-divider"></view>
+      <view class="ps-item">
+        <view class="ps-num">{{winRate}}</view>
+        <view class="ps-label">胜率</view>
+      </view>
+    </view>
+    <view class="win-lose">赢 {{winCount}} 次 / 输 {{loseCount}} 次</view>
+    <view wx:if="{{profileDirty}}" class="save-row">
+      <view class="btn primary save-btn" bindtap="saveProfile">保存头像昵称</view>
+    </view>
+  </view>
+
+  <view class="btn-row">
+    <view class="btn primary big" bindtap="createRoom">我要开房</view>
+    <view class="btn ghost big" bindtap="scanJoin">扫码进房</view>
+  </view>
+
+  <view class="code-row">
+    <input
+      class="code-input"
+      placeholder="输入 4 位房号进房"
+      value="{{joinCode}}"
+      maxlength="4"
+      bindinput="onCodeInput"
+    />
+    <view class="btn primary code-go" bindtap="codeJoin">进房</view>
+  </view>
+
+  <view class="tips">开房后生成 4 位房号和小程序码，牌友扫码、输房号或点分享卡片即可加入。各自用微信头像昵称，记分各记各的。</view>
+</view>

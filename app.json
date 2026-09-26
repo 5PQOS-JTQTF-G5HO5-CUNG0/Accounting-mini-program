@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/stats/stats",
+    "pages/room/room",
+    "pages/settle/settle"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0F6E56",
+    "navigationBarTitleText": "牌局小账本",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F6F7F8"
+  },
+  "tabBar": {
+    "color": "#888780",
+    "selectedColor": "#0F6E56",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "牌局"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "战绩"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

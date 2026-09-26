@@ -1,0 +1,17 @@
+<view class="page">
+  <view wx:if="{{hasData}}">
+    <view wx:for="{{list}}" wx:key="name" class="card stat-card">
+      <view class="sc-top">
+        <text class="sc-name">{{item.name}}</text>
+        <text class="sc-net {{item.net > 0 ? 'pos' : (item.net < 0 ? 'neg' : '')}}">{{item.netText}}</text>
+      </view>
+      <view class="sc-sub">
+        <text>{{item.gameCount}} 个房间</text>
+        <text>{{item.roundCount}} 局</text>
+        <text>胜率 {{item.winRate}}%</text>
+        <text>单局最多 <text class="pos">+{{item.maxWinText}}</text> / <text class="neg">{{item.maxLossText}}</text></text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="empty">还没有战绩\n去记几局牌吧</view>
+</view>
