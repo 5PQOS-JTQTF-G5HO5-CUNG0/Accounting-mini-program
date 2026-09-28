@@ -313,7 +313,7 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: '牌局小账本，聚会记分好帮手',
+      title: '聚会小本子，随手记一记',
       path: '/pages/index/index'
     };
   }
